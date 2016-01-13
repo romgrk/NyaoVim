@@ -30,6 +30,8 @@ class ComponentLoader {
             for (const entry of readdirSync(nyaovim_plugin_dir)) {
                 if (entry.endsWith('.html')) {
                     this.loadComponent(join(nyaovim_plugin_dir, entry));
+                } else if (entry.endsWith('.js')) {
+                    require(join(nyaovim_plugin_dir, entry));
                 }
             }
             this.nyaovim_plugin_paths.push(dir);
